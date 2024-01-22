@@ -6,15 +6,4 @@
       <class name="ScientificCalculatorTest"/>
     </classes>
   </test> <!-- Calculator_test -->
-  <test parallel="none" name="Calculator_test(failed)">
-    <classes>
-      <class name="ScientificCalculatorTest">
-        <methods>
-          <include name="testDivision" invocation-numbers="4 6 7 8"/>
-          <include name="testSquareRoot" invocation-numbers="4"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- ScientificCalculatorTest -->
-    </classes>
-  </test> <!-- Calculator_test(failed) -->
 </suite> <!-- Failed suite [Default Suite] -->

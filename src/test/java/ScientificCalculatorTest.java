@@ -43,11 +43,11 @@ public class ScientificCalculatorTest {
 
 
 // Test Square Root function
-    @Test(groups = "advancedOperations", dataProvider = "csvTestData")
-    public void testSquareRoot(double num1, double num2) {
+    @Test(groups = "advancedOperations", dataProvider = "csvTestData2")
+    public void testSquareRoot(double num1) {
 
-            double result = calculator.squareRoot(num1+num2);
-            Assert.assertEquals(result, Math.sqrt(num1+num2));
+            double result = calculator.squareRoot(num1);
+            Assert.assertEquals(result, Math.sqrt(num1));
 
     }
 // Test Power Function
@@ -57,22 +57,22 @@ public class ScientificCalculatorTest {
         Assert.assertEquals(result, Math.pow(base, exponent));
     }
 // Test Sine Function
-    @Test(groups = "advancedOperations", dataProvider = "csvTestData")
-    public void testSinFunction(double angle1, double angle2) {
-        double result = calculator.sin(Math.abs(angle1 - angle2));
-        Assert.assertEquals(result, Math.sin(Math.abs(angle1 - angle2)));
+    @Test(groups = "advancedOperations", dataProvider = "csvTestData2")
+    public void testSinFunction(double angle) {
+        double result = calculator.sin(angle );
+        Assert.assertEquals(result, Math.sin(angle));
     }
 // Test Cosine Function
-    @Test(groups = "advancedOperations", dataProvider = "csvTestData")
-    public void testCosFunction(double angle1, double angle2) {
-        double result = calculator.cos(Math.abs(angle1 - angle2));
-        Assert.assertEquals(result, Math.cos(Math.abs(angle1 - angle2)));
+    @Test(groups = "advancedOperations", dataProvider = "csvTestData2")
+    public void testCosFunction(double angle) {
+        double result = calculator.cos(angle );
+        Assert.assertEquals(result, Math.cos(angle));
     }
 // Test Tan Function
-    @Test(groups = "advancedOperations", dataProvider = "csvTestData")
-    public void testTanFunction(double angle1, double angle2) {
-        double result = calculator.tan(Math.abs(angle1 - angle2));
-        Assert.assertEquals(result, Math.tan(Math.abs(angle1 - angle2)));
+    @Test(groups = "advancedOperations", dataProvider = "csvTestData2")
+    public void testTanFunction(double angle) {
+        double result = calculator.tan(angle);
+        Assert.assertEquals(result, Math.tan(angle));
     }
 // Test invalid input for Addition
     @Test(groups = "basicOperations")
@@ -98,6 +98,19 @@ public class ScientificCalculatorTest {
             double num1 = Double.parseDouble(values[0]);
             double num2 = Double.parseDouble(values[1]);
             testData.add(new Object[]{num1, num2});
+        }
+        reader.close();
+        return testData.toArray(new Object[0][0]);
+    }
+    @DataProvider(name = "csvTestData2")
+    public Object[][] csvTestData2DataProvider() throws IOException {
+        List<Object[]> testData = new ArrayList<>();
+        BufferedReader reader = new BufferedReader(new FileReader("testData2.csv"));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] values = line.split(",");
+            double num1 = Double.parseDouble(values[0]);
+            testData.add(new Object[]{num1});
         }
         reader.close();
         return testData.toArray(new Object[0][0]);
