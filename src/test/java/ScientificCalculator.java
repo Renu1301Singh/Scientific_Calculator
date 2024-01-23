@@ -3,19 +3,16 @@ import static java.lang.Double.isNaN;
 public class ScientificCalculator {
 
 // Add Method with exception handling for non-numeric input
-    public double add(Object a, Object b) {
-        try {
-            if (a instanceof Number && b instanceof Number) {
-                double operand1 = ((Number) a).doubleValue();
-                double operand2 = ((Number) b).doubleValue();
-                return operand1 + operand2;
-            } else {
-                System.out.println("Invalid input.. Both inputs must be numeric.");
-            }
-        } catch (Exception e) {
-            System.out.println("Exception occurred: " + e.getMessage());
+    public double add(Object a, Object b) throws Exception {
+
+        if (a instanceof Number && b instanceof Number) {
+            double operand1 = ((Number) a).doubleValue();
+            double operand2 = ((Number) b).doubleValue();
+            return operand1 + operand2;
         }
-        return 0.0; // Return a default value or handle it as needed.
+        errorMessage = "Non-Numeric Values are not allowed";
+        throw new Exception(errorMessage);
+        // Return a default value or handle it as needed.
     }
 // Subtraction method
     public double subtract(double a, double b) {
@@ -26,16 +23,17 @@ public class ScientificCalculator {
         return a * b;
     }
 // Division Method
-    public double divide(double a, double b) {
-        try {
-            if (b == 0) {
-                throw new ArithmeticException("Dividend cannot be zero");
-            }
-            return a / b;
-        } catch (ArithmeticException e) {
-            System.out.println("Exception occurred: " + e.getMessage());
+private static String errorMessage;
+
+    public static double divide(double a, double b) throws ArithmeticException {
+        if (b == 0) {
+            errorMessage = "Dividend cannot be zero";
+            throw new ArithmeticException(errorMessage);
         }
-        return 0.0;
+        return a / b;
+    }
+    public static String getErrorMessage() {
+        return errorMessage;
     }
 
 // Square Root Method

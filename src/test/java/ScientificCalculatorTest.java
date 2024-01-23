@@ -18,7 +18,7 @@ public class ScientificCalculatorTest {
     }
 // Test Addition Function
     @Test(groups = "basicOperations", dataProvider = "csvTestData")
-    public void testAddition(double num1, double num2) {
+    public void testAddition(double num1, double num2) throws Exception {
         double result = calculator.add(num1, num2);
         assertEquals(result, num1 + num2);
         System.out.println(result);
@@ -40,7 +40,7 @@ public class ScientificCalculatorTest {
 // Test Division Function
     @Test(groups = "basicOperations", dataProvider = "csvTestData")
     public void testDivision(double num1, double num2) {
-        double result = calculator.divide(num1, num2);
+        double result = ScientificCalculator.divide(num1, num2);
         assertEquals(result, num1 / num2);}
 
 
@@ -79,13 +79,33 @@ public class ScientificCalculatorTest {
 // Test invalid input for Addition
     @Test(groups = "basicOperations")
     public void testInvalidAddition() {
-        assertEquals(calculator.add('c',5), 0.0);
+        try {
+            calculator.add('c', 5);
+            Assert.fail("Exception should have been thrown");
+            System.out.println("1");
+        } catch (Exception e) {
+            // Check if the exception message matches the expected value
+            String expectedMessage = "Non-Numeric Values are not allowed";
+            String actualMessage = e.getMessage();
+            System.out.println(actualMessage);
+            Assert.assertEquals(actualMessage, expectedMessage, "Exception message does not match.");
+        }
     }
 // Test invalid input for Divide method
-    @Test(groups = "basicOperations")
-    public void testInvalidDivisionByZero() {
-        assertEquals(calculator.divide(5,0), 0.0);
+@Test(groups = "basicOperations")
+public void testInvalidDivisionByZero() {
+    try {
+        ScientificCalculator.divide(5, 0);
+        Assert.fail("Exception should have been thrown");
+        System.out.println("1");
+    } catch (Exception e) {
+        // Check if the exception message matches the expected value
+        String expectedMessage = "Dividend cannot be zero";
+        String actualMessage = e.getMessage();
+        System.out.println(actualMessage);
+        Assert.assertEquals(actualMessage, expectedMessage, "Exception message does not match.");
     }
+}
 
 // Method to collect data from CSV
     @DataProvider(name = "csvTestData")
