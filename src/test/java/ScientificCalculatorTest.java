@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.testng.Assert.assertEquals;
+
 public class ScientificCalculatorTest {
 
     private ScientificCalculator calculator;
@@ -18,28 +20,28 @@ public class ScientificCalculatorTest {
     @Test(groups = "basicOperations", dataProvider = "csvTestData")
     public void testAddition(double num1, double num2) {
         double result = calculator.add(num1, num2);
-        Assert.assertEquals(result, num1 + num2);
+        assertEquals(result, num1 + num2);
         System.out.println(result);
     }
 // Test Subtraction Function
     @Test(groups = "basicOperations", dataProvider = "csvTestData")
     public void testSubtraction(double num1, double num2) {
         double result = calculator.subtract(num1, num2);
-        Assert.assertEquals(result, num1 - num2);
+        assertEquals(result, num1 - num2);
         System.out.println(result);
     }
 // Test Multiplication Function
     @Test(groups = "basicOperations", dataProvider = "csvTestData")
     public void testMultiplication(double num1, double num2) {
         double result = calculator.multiply(num1, num2);
-        Assert.assertEquals(result, num1 * num2);
+        assertEquals(result, num1 * num2);
         System.out.println(result);
     }
 // Test Division Function
     @Test(groups = "basicOperations", dataProvider = "csvTestData")
     public void testDivision(double num1, double num2) {
         double result = calculator.divide(num1, num2);
-        Assert.assertEquals(result, num1 / num2);}
+        assertEquals(result, num1 / num2);}
 
 
 // Test Square Root function
@@ -47,44 +49,42 @@ public class ScientificCalculatorTest {
     public void testSquareRoot(double num1) {
 
             double result = calculator.squareRoot(num1);
-            Assert.assertEquals(result, Math.sqrt(num1));
+            assertEquals(result, Math.sqrt(num1));
 
     }
 // Test Power Function
     @Test(groups = "advancedOperations", dataProvider = "csvTestData")
     public void testPower(double base, double exponent) {
         double result = calculator.power(base, exponent);
-        Assert.assertEquals(result, Math.pow(base, exponent));
+        assertEquals(result, Math.pow(base, exponent));
     }
 // Test Sine Function
     @Test(groups = "advancedOperations", dataProvider = "csvTestData2")
     public void testSinFunction(double angle) {
         double result = calculator.sin(angle );
-        Assert.assertEquals(result, Math.sin(angle));
+        assertEquals(result, Math.sin(angle));
     }
 // Test Cosine Function
     @Test(groups = "advancedOperations", dataProvider = "csvTestData2")
     public void testCosFunction(double angle) {
         double result = calculator.cos(angle );
-        Assert.assertEquals(result, Math.cos(angle));
+        assertEquals(result, Math.cos(angle));
     }
 // Test Tan Function
     @Test(groups = "advancedOperations", dataProvider = "csvTestData2")
     public void testTanFunction(double angle) {
         double result = calculator.tan(angle);
-        Assert.assertEquals(result, Math.tan(angle));
+        assertEquals(result, Math.tan(angle));
     }
 // Test invalid input for Addition
     @Test(groups = "basicOperations")
     public void testInvalidAddition() {
-  double result= calculator.add('c', 10);
-
-
+        assertEquals(calculator.add('c',5), 0.0);
     }
 // Test invalid input for Divide method
     @Test(groups = "basicOperations")
     public void testInvalidDivisionByZero() {
-        calculator.divide(5, 0);
+        assertEquals(calculator.divide(5,0), 0.0);
     }
 
 // Method to collect data from CSV

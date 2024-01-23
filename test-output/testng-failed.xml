@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite parallel="none" name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="Calculator_test">
+<suite thread-count="2" parallel="methods" name="Failed suite [All Test Suite]" guice-stage="DEVELOPMENT">
+  <test name="/home/knoldus/IdeaProjects/Calculator_test/test/java/ScientificCalculatorTest" verbose="2">
     <classes>
       <class name="ScientificCalculatorTest"/>
     </classes>
-  </test> <!-- Calculator_test -->
-</suite> <!-- Failed suite [Default Suite] -->
+  </test> <!-- /home/knoldus/IdeaProjects/Calculator_test/test/java/ScientificCalculatorTest -->
+</suite> <!-- Failed suite [All Test Suite] -->

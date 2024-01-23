@@ -6,14 +6,4 @@
       <class name="ScientificCalculatorTest"/>
     </classes>
   </test> <!-- /home/knoldus/IdeaProjects/Calculator_test/test/java/ScientificCalculatorTest -->
-  <test parallel="methods" name="/home/knoldus/IdeaProjects/Calculator_test/test/java/ScientificCalculatorTest(failed)">
-    <classes>
-      <class name="ScientificCalculatorTest">
-        <methods>
-          <include name="testDivision" invocation-numbers="4 6 7 8"/>
-          <include name="setUp"/>
-        </methods>
-      </class> <!-- ScientificCalculatorTest -->
-    </classes>
-  </test> <!-- /home/knoldus/IdeaProjects/Calculator_test/test/java/ScientificCalculatorTest(failed) -->
 </suite> <!-- Failed suite [All Test Suite] -->
