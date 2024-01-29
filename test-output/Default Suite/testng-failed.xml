@@ -3,7 +3,11 @@
 <suite parallel="none" name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Calculator_test">
     <classes>
-      <class name="ScientificCalculatorTest"/>
+      <class name="ScientificCalculatorTest">
+        <methods>
+          <include name="testSquareRoot"/>
+        </methods>
+      </class> <!-- ScientificCalculatorTest -->
     </classes>
   </test> <!-- Calculator_test -->
 </suite> <!-- Failed suite [Default Suite] -->

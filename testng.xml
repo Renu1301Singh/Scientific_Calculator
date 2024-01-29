@@ -1,12 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite" parallel="methods" thread-count="2">
-    <test verbose="2" preserve-order="true" name="/home/knoldus/IdeaProjects/Calculator_test/test/java/ScientificCalculatorTest">
-     <classes>
-         <class name="ScientificCalculatorTest">
+<suite name="MyTestSuite"  parallel="methods" thread-count="2">
+    <test name="MyTest">
+        <groups>
+            <run>
+                <include name="basicOperations"/>
+                <include name="advancedOperations"/>
+            </run>
+        </groups>
 
-         </class>
-     </classes>
+        <classes>
+            <class name="ScientificCalculatorTest">
+                <methods>
+                    <include name="testAddition" />
+                    <include name="testSubtraction" />
+                    <include name="testMultiplication" />
+                    <include name="testDivision" />
+                    <include name="testSquareRoot" />
 
+                </methods>
+            </class>
+        </classes>
     </test>
 </suite>

@@ -19,21 +19,21 @@ public class ScientificCalculatorTest {
 // Test Addition Function
     @Test(groups = "basicOperations", dataProvider = "csvTestData")
     public void testAddition(double num1, double num2) throws Exception {
-        double result = calculator.add(num1, num2);
+        double result = ScientificCalculator.add(num1, num2);
         assertEquals(result, num1 + num2);
         System.out.println(result);
     }
 // Test Subtraction Function
     @Test(groups = "basicOperations", dataProvider = "csvTestData")
     public void testSubtraction(double num1, double num2) {
-        double result = calculator.subtract(num1, num2);
+        double result = ScientificCalculator.subtract(num1, num2);
         assertEquals(result, num1 - num2);
         System.out.println(result);
     }
 // Test Multiplication Function
     @Test(groups = "basicOperations", dataProvider = "csvTestData")
     public void testMultiplication(double num1, double num2) {
-        double result = calculator.multiply(num1, num2);
+        double result = ScientificCalculator.multiply(num1, num2);
         assertEquals(result, num1 * num2);
         System.out.println(result);
     }
@@ -48,39 +48,39 @@ public class ScientificCalculatorTest {
     @Test(groups = "advancedOperations", dataProvider = "csvTestData2")
     public void testSquareRoot(double num1) {
 
-            double result = calculator.squareRoot(num1);
+            double result = ScientificCalculator.squareRoot(num1);
             assertEquals(result, Math.sqrt(num1));
 
     }
 // Test Power Function
     @Test(groups = "advancedOperations", dataProvider = "csvTestData")
     public void testPower(double base, double exponent) {
-        double result = calculator.power(base, exponent);
+        double result = ScientificCalculator.power(base, exponent);
         assertEquals(result, Math.pow(base, exponent));
     }
 // Test Sine Function
     @Test(groups = "advancedOperations", dataProvider = "csvTestData2")
     public void testSinFunction(double angle) {
-        double result = calculator.sin(angle );
+        double result = ScientificCalculator.sin(angle );
         assertEquals(result, Math.sin(angle));
     }
 // Test Cosine Function
     @Test(groups = "advancedOperations", dataProvider = "csvTestData2")
     public void testCosFunction(double angle) {
-        double result = calculator.cos(angle );
+        double result = ScientificCalculator.cos(angle );
         assertEquals(result, Math.cos(angle));
     }
 // Test Tan Function
     @Test(groups = "advancedOperations", dataProvider = "csvTestData2")
     public void testTanFunction(double angle) {
-        double result = calculator.tan(angle);
+        double result = ScientificCalculator.tan(angle);
         assertEquals(result, Math.tan(angle));
     }
 // Test invalid input for Addition
     @Test(groups = "basicOperations")
     public void testInvalidAddition() {
         try {
-            calculator.add('c', 5);
+            ScientificCalculator.add('c', 5);
             Assert.fail("Exception should have been thrown");
             System.out.println("1");
         } catch (Exception e) {

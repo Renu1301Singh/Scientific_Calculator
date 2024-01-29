@@ -2,8 +2,37 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite thread-count="2" parallel="methods" name="Failed suite [All Test Suite]" guice-stage="DEVELOPMENT">
   <test name="/home/knoldus/IdeaProjects/Calculator_test/test/java/ScientificCalculatorTest" verbose="2">
+    <groups>
+      <run>
+        <include name="basicOperations"/>
+        <include name="advancedOperations"/>
+      </run>
+    </groups>
     <classes>
       <class name="ScientificCalculatorTest"/>
     </classes>
   </test> <!-- /home/knoldus/IdeaProjects/Calculator_test/test/java/ScientificCalculatorTest -->
+  <test parallel="methods" name="/home/knoldus/IdeaProjects/Calculator_test/test/java/ScientificCalculatorTest(failed)">
+    <groups>
+      <run>
+        <include name="basicOperations"/>
+        <include name="advancedOperations"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="ScientificCalculatorTest">
+        <methods>
+          <include name="testCosFunction" invocation-numbers="0 1 2 3 4 5 6 7"/>
+          <include name="testAddition" invocation-numbers="0 1 2 3 4 5 6"/>
+          <include name="testMultiplication" invocation-numbers="0 1 2 3 4 5 6"/>
+          <include name="testSquareRoot" invocation-numbers="0 1 2 3 4 5 6 7"/>
+          <include name="testSinFunction" invocation-numbers="0 1 2 3 4 5 6 7"/>
+          <include name="testSubtraction" invocation-numbers="0 1 2 3 4 5 6"/>
+          <include name="testInvalidAddition"/>
+          <include name="testPower" invocation-numbers="0 1 2 3 4 5 6"/>
+          <include name="testTanFunction" invocation-numbers="0 1 2 3 4 5 6 7"/>
+        </methods>
+      </class> <!-- ScientificCalculatorTest -->
+    </classes>
+  </test> <!-- /home/knoldus/IdeaProjects/Calculator_test/test/java/ScientificCalculatorTest(failed) -->
 </suite> <!-- Failed suite [All Test Suite] -->
